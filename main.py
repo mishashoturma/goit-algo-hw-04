@@ -1,20 +1,17 @@
-
-def total_salary(path):
+def get_cats_info(path):
     try:
-        with open(path, "r") as file1:
-            lines = [el.strip() for el in file1.readlines()]
-            total = 0
-            person = 0 
+        with open(path, "r") as file:
+            cats_info = []
+            lines = [el.strip() for el in file.readlines()]
             for line in lines:
                 part = line.split(',')
-                total = total + int(part[1])
-                person = person + 1
-            average = total / person
-            print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
+                cats_info.append({"id": part[0], "name": part[1], "age": part[2], /n})
+            return cats_info
     except FileNotFoundError:
         print("Файл не знайдено")
 
-total_salary("C:/Hw4/salary_file.txt.txt")
+print(get_cats_info("C:/Hw4/cats.txt"))
+
 
 
     
